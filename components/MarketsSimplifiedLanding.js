@@ -3,21 +3,110 @@
 import React, { useState } from 'react';
 import { ArrowRight, TrendingUp, Clock, Users, CheckCircle, Star, Play, Search, Calendar, DollarSign, Shield, Zap, Target, BookOpen, Award, ChevronDown, Menu, X, BarChart3 } from 'lucide-react';
 
-// Custom Logo Component
+// Custom Logo Component with Enhanced Design
 const Logo = ({ className = "h-8 w-auto" }) => (
-  <div className={`flex items-center space-x-2 ${className}`}>
+  <div className={`flex items-center space-x-3 ${className}`}>
     <div className="relative">
-      <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">MS</span>
+      <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+        <span className="text-white font-bold text-lg">MS</span>
+        <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
       </div>
     </div>
-    <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-      Markets Simplified
-    </span>
+    <div>
+      <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+        Markets Simplified
+      </span>
+      <div className="text-xs text-gray-500 font-medium -mt-1">Financial Intelligence</div>
+    </div>
   </div>
 );
 
-// Mock Financial Analyzer Preview
+// Search Component to Connect to Analyzer Platform
+const EventSearchBox = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+    
+    setIsLoading(true);
+    
+    // Create URL parameters to pass to your analyzer
+    const params = new URLSearchParams({
+      event: searchQuery.trim(),
+      source: 'landing'
+    });
+    
+    // Navigate to your analyzer (replace '/analyzer' with your actual analyzer route)
+    window.location.href = `/analyzer?${params.toString()}`;
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const quickSearches = ['AAPL earnings', 'Fed rate decision', 'TSLA guidance', 'NVDA results'];
+
+  return (
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 max-w-lg mx-auto mt-8">
+      <div className="text-center mb-4">
+        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+          Try It Now
+        </h3>
+        <p className="text-sm text-gray-600">
+          Enter any financial event to see our analysis
+        </p>
+      </div>
+      
+      <div className="relative mb-4">
+        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
+          placeholder="e.g., 'AAPL beats earnings', 'Fed cuts rates'"
+          className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-xl text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+        />
+      </div>
+      
+      <button
+        onClick={handleSearch}
+        disabled={!searchQuery.trim() || isLoading}
+        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+      >
+        {isLoading ? (
+          <>
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+            <span>Analyzing...</span>
+          </>
+        ) : (
+          <>
+            <span>Analyze This Event</span>
+            <ArrowRight className="w-5 h-5" />
+          </>
+        )}
+      </button>
+      
+      <div className="mt-4">
+        <p className="text-xs text-gray-500 mb-2 text-center">Quick searches:</p>
+        <div className="flex flex-wrap gap-2 justify-center">
+          {quickSearches.map((suggestion) => (
+            <button
+              key={suggestion}
+              onClick={() => setSearchQuery(suggestion)}
+              className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs hover:bg-gray-200 transition-colors"
+            >
+              {suggestion}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 const FinancialAnalyzerPreview = () => (
   <div className="relative">
     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 max-w-md mx-auto">
@@ -177,9 +266,12 @@ const HeroSection = () => (
           </div>
         </div>
         
-        {/* Right Content - Analyzer Preview */}
+        {/* Right Content - Analyzer Preview + Search */}
         <div className="relative">
           <FinancialAnalyzerPreview />
+          
+          {/* Search Box Below Preview */}
+          <EventSearchBox />
         </div>
       </div>
     </div>
