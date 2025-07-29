@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, TrendingUp, Clock, Users, CheckCircle, Star, Play, Search, Calendar, DollarSign, Shield, Zap, Target, BookOpen, Award, ChevronDown, Menu, X } from 'lucide-react';
 
