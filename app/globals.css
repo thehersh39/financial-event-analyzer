@@ -1,17 +1,27 @@
-/* Add this to your global CSS file (app/globals.css) */
-/* Landing Page UI Fixes */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Reset and base fixes */
+/* Markets Simplified Landing Page Styles */
+
+/* Base layout */
 .landing-page {
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
-/* Hero section improvements */
+/* Navigation */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.6) !important;
+}
+
+/* Hero Section */
 .hero-section {
-  padding-top: 120px !important;
-  padding-bottom: 100px !important;
+  padding: 120px 0 100px 0 !important;
+  background: linear-gradient(135deg, #eff6ff 0%, #f3e8ff 100%) !important;
   min-height: 80vh;
   display: flex;
   align-items: center;
@@ -23,12 +33,11 @@
   margin: 0 auto;
 }
 
-/* Fix hero title spacing and sizing */
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem) !important;
-  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
   margin-bottom: 1.5rem !important;
-  font-weight: 800;
 }
 
 .hero-subtitle {
@@ -40,7 +49,6 @@
   margin-right: auto;
 }
 
-/* Button group fixes */
 .hero-buttons {
   display: flex;
   flex-direction: column;
@@ -57,7 +65,7 @@
   }
 }
 
-/* Primary button fixes */
+/* Buttons */
 .btn-primary {
   padding: 1rem 2rem !important;
   font-size: 1.1rem !important;
@@ -91,73 +99,101 @@
   background: #f8fafc;
 }
 
-/* Section spacing fixes */
+/* Sections */
 .section-padding {
-  padding-top: 6rem !important;
-  padding-bottom: 6rem !important;
+  padding: 6rem 0 !important;
 }
 
-/* Features section fixes */
+.container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+/* Stats Section */
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 2rem !important;
+  max-width: 800px !important;
+  margin: 2rem auto 0 auto !important;
+}
+
+.stat-item {
+  text-align: center !important;
+  padding: 1.5rem !important;
+}
+
+/* Features Section */
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2rem !important;
+  margin-top: 3rem !important;
 }
 
 .feature-card {
   padding: 2rem !important;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  background: white;
-  transition: all 0.3s ease;
-  height: 100%;
+  border-radius: 16px !important;
+  border: 1px solid #e5e7eb !important;
+  background: white !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
 }
 
-/* Pricing section fixes */
+/* Pricing Section */
 .pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 2rem !important;
+  margin-top: 3rem !important;
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .pricing-card {
   padding: 2.5rem !important;
-  border-radius: 20px;
-  border: 2px solid #e5e7eb;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.3s ease;
-  min-height: 500px;
+  border-radius: 20px !important;
+  border: 2px solid #e5e7eb !important;
+  background: white !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  min-height: 500px !important;
 }
 
 .pricing-card.featured {
-  border-color: #3b82f6;
-  transform: scale(1.05);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-color: #3b82f6 !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
 }
 
 .pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .pricing-card.featured:hover {
-  transform: scale(1.05) translateY(-8px);
+  transform: scale(1.05) translateY(-8px) !important;
 }
 
-/* Text and gradient fixes */
+/* Testimonials */
+.testimonial-card {
+  padding: 2rem !important;
+  border-radius: 16px !important;
+  background: white !important;
+  border: 1px solid #e5e7eb !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Text styling */
 .gradient-text {
   background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
@@ -166,63 +202,6 @@
   color: transparent;
 }
 
-/* Navigation fixes */
-.navbar {
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
-}
-
-/* Stats section fixes */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1.5rem;
-}
-
-/* Testimonials fixes */
-.testimonial-card {
-  padding: 2rem !important;
-  border-radius: 16px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  margin-bottom: 1.5rem;
-}
-
-/* Mobile responsiveness improvements */
-@media (max-width: 768px) {
-  .hero-section {
-    padding-top: 80px !important;
-    padding-bottom: 60px !important;
-  }
-  
-  .section-padding {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  }
-  
-  .pricing-card.featured {
-    transform: none;
-  }
-  
-  .pricing-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-/* Fix any text readability issues */
 .text-muted {
   color: #6b7280 !important;
 }
@@ -231,252 +210,36 @@
   color: #1f2937 !important;
 }
 
-/* Ensure proper spacing between sections */
-.section + .section {
-  margin-top: 0;
-}
-
-/* Fix any overflow issues */
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-
-/* Landing Page UI Fixes - Add this to the bottom of your app/globals.css file */
-
-/* Reset and base fixes */
-.landing-page {
-  min-height: 100vh;
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-
-/* Hero section improvements */
-.hero-section {
-  padding-top: 120px !important;
-  padding-bottom: 100px !important;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-}
-
-.hero-content {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Fix hero title spacing and sizing */
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem) !important;
-  line-height: 1.2 !important;
-  margin-bottom: 1.5rem !important;
-  font-weight: 800;
-}
-
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
-  margin-bottom: 2.5rem !important;
-  opacity: 0.9;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Button group fixes */
-.hero-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-@media (min-width: 640px) {
-  .hero-buttons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-}
-
-/* Primary button fixes */
-.btn-primary {
-  padding: 1rem 2rem !important;
-  font-size: 1.1rem !important;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  min-width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.btn-secondary {
-  padding: 1rem 2rem !important;
-  font-size: 1.1rem !important;
-  font-weight: 600;
-  border-radius: 12px;
-  border: 2px solid #e5e7eb;
-  background: white;
-  transition: all 0.3s ease;
-  min-width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.btn-secondary:hover {
-  border-color: #3b82f6;
-  background: #f8fafc;
-}
-
-/* Section spacing fixes */
-.section-padding {
-  padding-top: 6rem !important;
-  padding-bottom: 6rem !important;
-}
-
-/* Features section fixes */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.feature-card {
-  padding: 2rem !important;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  background: white;
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Pricing section fixes */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pricing-card {
-  padding: 2.5rem !important;
-  border-radius: 20px;
-  border: 2px solid #e5e7eb;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.3s ease;
-  min-height: 500px;
-}
-
-.pricing-card.featured {
-  border-color: #3b82f6;
-  transform: scale(1.05);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-}
-
-.pricing-card.featured:hover {
-  transform: scale(1.05) translateY(-8px);
-}
-
-/* Text and gradient fixes */
-.gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Navigation fixes */
-.navbar {
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
-}
-
-/* Stats section fixes */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1.5rem;
-}
-
-/* Testimonials fixes */
-.testimonial-card {
-  padding: 2rem !important;
-  border-radius: 16px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  margin-bottom: 1.5rem;
-}
-
-/* Mobile responsiveness improvements */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 80px !important;
-    padding-bottom: 60px !important;
+    padding: 80px 0 60px 0 !important;
   }
   
   .section-padding {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding: 3rem 0 !important;
   }
   
   .pricing-card.featured {
-    transform: none;
+    transform: none !important;
   }
   
   .pricing-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
   
   .features-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
-/* Container fix */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+/* Utility fixes */
+* {
+  box-sizing: border-box;
 }
-
