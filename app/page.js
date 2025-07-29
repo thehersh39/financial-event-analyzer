@@ -1,9 +1,5 @@
-import FinancialEventAnalyzer from '../components/FinancialEventAnalyzer'
+import MarketsSimplifiedLanding from '../components/MarketsSimplifiedLanding'
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-gray-50">
-      <FinancialEventAnalyzer />
-    </main>
-  )
+  return <MarketsSimplifiedLanding />
 }
