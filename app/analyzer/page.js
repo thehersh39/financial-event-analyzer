@@ -2,8 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
-import FinancialEventAnalyzer from '@/components/FinancialEventAnalyzer';
-
+import FinancialEventAnalyzer from '../../components/FinancialEventAnalyzer';
 // Wrapper component to handle search params
 function AnalyzerContent() {
   const searchParams = useSearchParams();
