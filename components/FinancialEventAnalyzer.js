@@ -4,11 +4,22 @@ import React, { useState, useEffect } from 'react';
 import { TrendingUp, TrendingDown, AlertTriangle, Calendar, DollarSign, BookOpen, BarChart3, Info, Clock, Target, Users, Lightbulb } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
 
-export default function AdvancedFinancialAnalyzer() {
-  const [eventText, setEventText] = useState('');
+export default function AdvancedFinancialAnalyzer({ initialEvent = '' }) {
+  const [eventText, setEventText] = useState(initialEvent);
   const [analysis, setAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
+
+  // Auto-populate and analyze when initialEvent is provided
+  useEffect(() => {
+    if (initialEvent && initialEvent.trim()) {
+      setEventText(initialEvent);
+      // Auto-run analysis when initialEvent is provided
+      setTimeout(() => {
+        analyzeEvent();
+      }, 500);
+    }
+  }, [initialEvent]);
 
   // Sample historical data for charts
   const generateHistoricalData = (eventType, ticker) => {
