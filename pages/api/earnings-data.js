@@ -48,12 +48,9 @@ export default async function handler(req, res) {
     const overviewData = overviewResponse.data;
 
     if (earningsData.Note || !earningsData.quarterlyEarnings) {
-      return res.status(429).json({ 
-        success: false, 
-        error: 'API rate limit or invalid symbol',
-        fallback: true
-      });
-    }
+  console.log('API rate limit or error, using fallback');
+  return generateFallbackResponse(symbol, res);
+}
 
     // Get latest quarterly earnings
     const latestQuarter = earningsData.quarterlyEarnings[0];
